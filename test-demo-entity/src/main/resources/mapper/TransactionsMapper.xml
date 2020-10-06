@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.demo.mapper.TransactionsMapper" >
+  <resultMap id="BaseResultMap" type="com.test.demo.entity.Transactions" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="transaction_id" property="transactionId" jdbcType="INTEGER" />
+    <result column="trade_id" property="tradeId" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="security_code" property="securityCode" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+    <result column="transaction_type" property="transactionType" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectForVersionNext" resultMap="BaseResultMap">
+    SELECT * FROM transactions s WHERE s.security_code = #{securityCode}
+    and s.trade_id = #{tradeId} ORDER BY s.version DESC LIMIT 1
+  </select>
+</mapper>

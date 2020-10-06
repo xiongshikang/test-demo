@@ -1,0 +1,23 @@
+spring:
+    application:
+        name: test-demo
+    profiles:
+        active: dev
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+    resources:
+        static-locations: classpath:/templates/,classpath:/static/
+
+mybatis:
+    basepackage: com.test.demo.mapper
+    xmlLocation: classpath:mapper/**/*.xml
+    mapper-locations: "classpath*:mapper/*.xml"   
+server:
+    port: 8760
+    servlet: 
+      contextPath: /
+
+ 
+
+

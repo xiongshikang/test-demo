@@ -1,0 +1,44 @@
+logging:
+    level:
+        tk.mybatis: DEBUG
+        com.test: DEBUG
+    config: classpath:logback.xml
+    path: /test-demo
+
+spring:
+    application:
+        name: test-demo
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        default-property-inclusion: non_null
+    h2:
+      console:
+        path: /h2-console
+        enabled: true
+        settings: 
+          web-allow-others: true
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:~/test
+      username: sa
+      password: 
+      schema: classpath:demo.sql   
+      name: test
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+        min-idle: 2
+        initial-size: 5
+        max-active: 10
+        max-wait: 5000
+        validation-query: select 1
+test:
+  swagger:
+    license: Powered By test
+    licenseUrl: https://github.com/test
+    termsOfServiceUrl: https://github.com/test
+    version: 2.2
+    docket:
+      test:
+        title: 测试
+        base-package: com.test.demo.controller

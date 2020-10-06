@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.demo.mapper.PositionMapper" >
+  <resultMap id="BaseResultMap" type="com.test.demo.entity.Position" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+  </resultMap>
+
+  <update id="updateQuantityByCode" >
+    UPDATE position s SET s.quantity = #{quantity} WHERE s.`name` = #{code}
+  </update>
+</mapper>
